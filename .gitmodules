@@ -1,0 +1,3 @@
+[submodule "box2c"]
+	path = box2c
+	url = https://github.com/Carroted/box2c.git
