@@ -1,6 +1,8 @@
 [package]
 name = "box2d_sys"
 version = "0.1.0"
+description = "Bindings for Box2D v3.0"
+license = "MIT OR Apache-2.0"
 edition = "2021"
 
 [build-dependencies]
