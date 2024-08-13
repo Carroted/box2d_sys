@@ -1,4 +1,4 @@
-use box2c_sys::*;
+use box2d_sys::*;
 
 fn main() {
     let gravity = b2Vec2 { x: 0.0, y: -10.0 };

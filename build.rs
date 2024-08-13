@@ -3,7 +3,7 @@ use std::path::PathBuf;
 
 fn main() {
     println!("cargo:rustc-link-lib=box2d");
-    println!("cargo:rerun-if-changed=box2c/");
+    println!("cargo:rerun-if-changed=box2d/");
     println!("cargo:rerun-if-changed=src/lib.rs");
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-changed=wrapper.h");
@@ -42,7 +42,7 @@ fn main() {
 }
 
 fn build_box2d() -> PathBuf {
-    let mut box2d_config = cmake::Config::new("box2c");
+    let mut box2d_config = cmake::Config::new("box2d");
 
     let mut box2d_config = box2d_config
         .define("BOX2D_BUILD_UNIT_TESTS", "OFF")
