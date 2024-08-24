@@ -55,7 +55,7 @@ fn build_box2d() -> PathBuf {
         .define("BOX2D_BENCHMARKS", "OFF")
         .define("BOX2D_DOCS", "OFF")
         .define("BOX2D_PROFILE", "OFF")
-        //.define("BOX2D_VALIDATE", "ON")
+        .define("BOX2D_VALIDATE", "ON")
         .define("ENKITS_BUILD_EXAMPLES", "OFF");
 
     #[cfg(feature = "no_avx2")]
