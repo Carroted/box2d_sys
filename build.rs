@@ -2,9 +2,6 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    env::set_var("CMAKE_INSTALL_LIBDIR", "lib");
-    println!("cargo:rustc-env=CMAKE_INSTALL_LIBDIR=lib");
-
     println!("cargo:rustc-link-lib=box2d");
     println!("cargo:rerun-if-changed=box2d/");
     println!("cargo:rerun-if-changed=src/lib.rs");
@@ -59,7 +56,11 @@ fn build_box2d() -> PathBuf {
         .define("BOX2D_DOCS", "OFF")
         .define("BOX2D_PROFILE", "OFF")
         .define("BOX2D_VALIDATE", "ON")
-        .define("ENKITS_BUILD_EXAMPLES", "OFF");
+        .define("ENKITS_BUILD_EXAMPLES", "OFF")
+        .define("CMAKE_INSTALL_LIBDIR", "lib")
+        .define("CMAKE_INSTALL_BINDIR", "bin")
+        .define("CMAKE_INSTALL_INCLUDEDIR", "include")
+        .define("CMAKE_BUILD_TYPE", "Release");
 
     #[cfg(feature = "no_avx2")]
     {
@@ -74,6 +75,7 @@ fn build_box2d() -> PathBuf {
         "cargo:rustc-link-search=native={}/lib",
         box2d_path.display()
     );
+
     println!("cargo:include={}/include", box2d_path.display());
 
     return box2d_path;
