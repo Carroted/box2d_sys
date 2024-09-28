@@ -2,6 +2,8 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    env::set_var("CMAKE_INSTALL_LIBDIR", "lib");
+
     println!("cargo:rustc-link-lib=box2d");
     println!("cargo:rerun-if-changed=box2d/");
     println!("cargo:rerun-if-changed=src/lib.rs");
